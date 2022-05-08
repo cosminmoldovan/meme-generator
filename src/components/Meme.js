@@ -1,12 +1,10 @@
 function Meme(){
     return (
-        <form className='meme'>
-            <div className='meme-input-container'>
-                <input type='text' placeholder="title" className='meme-input' />
-                <input type='text' placeholder="body"  className='meme-input'/>
-            </div>
-           <button className='meme-btn'>Get a new meme image 🖼</button>
-        </form>
+        <div className='form'>
+            <input type='text' placeholder="Top text" className='form-input' />
+            <input type='text' placeholder="Bottom text"  className='form-input'/>
+           <button className='form-btn'>Get a new meme image 🖼</button>
+        </div>
     );
 }
 export default Meme;
