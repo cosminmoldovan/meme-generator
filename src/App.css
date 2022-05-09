@@ -65,3 +65,7 @@
 .form-btn:active{
   transform: translateY(3px);
 }
+.meme-image{
+  width: 100%;
+  margin-top: 40px;
+}
