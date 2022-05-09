@@ -8,8 +8,7 @@ function Meme(){
 
     function getImage(){
         const randomNumber = Math.floor(Math.random() * memesArray.length)
-        let imgUrl = memesArray[randomNumber].url;
-        setMemeImage(imgUrl);
+        setMemeImage(memesArray[randomNumber].url);
     }
     return (
         <>
