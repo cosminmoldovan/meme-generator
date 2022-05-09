@@ -8,8 +8,9 @@
 import memesData  from "../memesData";
 function Meme(){
     function getImage(){
-        let randomNum = Math.floor(Math.random() * 101);
-        let imgUrl = memesData.data.memes[randomNum].url;
+        const memesArray = memesData.data.memes
+        const randomNumber = Math.floor(Math.random() * memesArray.length)
+        let imgUrl = memesArray[randomNumber].url;
         console.log(imgUrl);
     }
     return (
