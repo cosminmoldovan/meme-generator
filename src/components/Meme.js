@@ -1,5 +1,4 @@
 import React from 'react'
-import memesData  from "../memesData";
 function Meme(){
 
     const [meme, setMeme] = React.useState({
@@ -7,11 +6,13 @@ function Meme(){
         bottomText: "",
         randomImage: "https://i.imgflip.com/3si4.jpg"
     })
-    const [allMemeImages, setAllMemeImages] = React.useState(memesData);
+    const [allMemes, setAllMemes] = React.useState([]);
+    React.useEffect(()=>{
+        fetch("https://api.imgflip.com/get_memes").then(res => res.json()).then(data => setAllMemes(data.data.memes ) )
+    },[])
     function getImage(){
-        const memesArray = allMemeImages.data.memes;
-        const randomNumber = Math.floor(Math.random() * memesArray.length);
-        const url = memesArray[randomNumber].url;
+        const randomNumber = Math.floor(Math.random() * allMemes.length);
+        const url = allMemes[randomNumber].url;
         setMeme(prevMeme => {
             return {
                 ...prevMeme,
@@ -48,7 +49,7 @@ function Meme(){
            <button className='form-btn' onClick={getImage}>Get a new meme image 🖼</button>
         </div>
         <div className="meme">
-                <img src={meme.randomImage} className="meme-image" />
+                <img src={meme.randomImage} className="meme-image" alt="meme-images"/>
                 <h2 className="meme-text top">{meme.topText}</h2>
                 <h2 className="meme-text bottom">{meme.bottomText}</h2>
         </div>
